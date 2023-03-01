@@ -22,6 +22,8 @@ const App = () => {
   const formSubmit = (e) => {
     e.preventDefault();
     const validationResult = Validation(details);
+
+    console.log(validationResult);
     if (Object.keys(validationResult).length > 0) {
       setError(validationResult);
       return;
@@ -34,8 +36,16 @@ const App = () => {
         password: "",
         contactNo: "",
       });
+      setError({
+        username: "",
+        email: "",
+        password: "",
+        contactNo: "",
+      })
     }
   };
+
+  
 
   const handleChange = (e) => {
     setDetails({ ...details, [e.target.name]: e.target.value });
