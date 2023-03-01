@@ -19,12 +19,13 @@ const App = () => {
   });
 
   const [flag, setFlag] = useState(false);
-  
+
   const formSubmit = (e) => {
     e.preventDefault();
     const validationResult = Validation(details);
     if (Object.keys(validationResult).length > 0) {
-      setError(validationResult);
+      setError({...error, ...validationResult});
+      console.log(error)
       setDetails({
         username: "",
         email: "",
@@ -66,7 +67,11 @@ const App = () => {
             value={details.username}
             onChange={handleChange}
           />
-          {error.username.length>0 ? (<p className="username-error">{error.username}</p> ): ("")}
+          {error.username.length > 0 ? (
+            <p className="username-error">{error.username.length}</p>
+          ) : (
+            ""
+          )}
           <label>Email</label>
           <input
             type="email"
@@ -74,7 +79,11 @@ const App = () => {
             value={details.email}
             onChange={handleChange}
           />
-          {error.email.length>0 ? <p className="email-error">{error.email}</p> : ""}
+          {error.email.length > 0 ? (
+            <p className="email-error">{error.email}</p>
+          ) : (
+            ""
+          )}
           <label>Password</label>
           <input
             type="password"
@@ -82,7 +91,11 @@ const App = () => {
             value={details.password}
             onChange={handleChange}
           />
-          {error.password.length>0 ? <p className="password-error">{error.password}</p> : ""}
+          {error.password.length > 0 ? (
+            <p className="password-error">{error.password}</p>
+          ) : (
+            ""
+          )}
           <label>Contact Number</label>
           <input
             type="number"
@@ -90,7 +103,11 @@ const App = () => {
             value={details.contactNo}
             onChange={handleChange}
           />
-          {error.contactNo.length>0 ? <p className="contactNo-error">{error.contactNo}</p> : ""}
+          {error.contactNo.length > 0 ? (
+            <p className="contactNo-error">{error.contactNo}</p>
+          ) : (
+            ""
+          )}
           <button type="submit">Submit</button>
         </section>
       </form>
