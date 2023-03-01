@@ -26,6 +26,12 @@ const App = () => {
     console.log(validationResult);
     if (Object.keys(validationResult).length > 0) {
       setError(validationResult);
+      setDetails({
+        username: "",
+        email: "",
+        password: "",
+        contactNo: "",
+      });
       return;
     } 
     else {
