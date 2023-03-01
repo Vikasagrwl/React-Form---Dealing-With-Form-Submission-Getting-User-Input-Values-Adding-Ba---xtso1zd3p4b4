@@ -64,16 +64,16 @@ const App = () => {
         <section>
           <label>Username</label>
           <input type="text" name="username" value={details.username} onChange={handleChange} />
-          <p className="username-error">{error.username}</p>
+          {!flag? <p className="username-error">{error.username}</p> :""}
           <label>Email</label>
           <input type="email" name="email" value={details.email} onChange={handleChange} />
-          <p className="email-error">{error.email}</p>
+          {!flag? <p className="email-error">{error.email}</p> : ""}
           <label>Password</label>
           <input type="password" name="password" value={details.password} onChange={handleChange} />
-          <p className="password-error">{error.password}</p>
+          {!flag? <p className="password-error">{error.password}</p> :""}
           <label>Contact Number</label>
           <input type="number" name="contactNo" value={details.contactNo} onChange={handleChange} />
-          <p className="contactNo-error">{error.contactNo}</p>
+          {!flag? <p className="contactNo-error">{error.contactNo}</p> :""}
           <button type="submit">Submit</button>
         </section>
       </form>
