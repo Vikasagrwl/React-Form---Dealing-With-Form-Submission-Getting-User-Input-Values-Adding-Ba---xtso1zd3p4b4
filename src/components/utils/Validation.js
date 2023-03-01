@@ -28,7 +28,7 @@ export const  Validation = (details)=>{
     if(details.contactNo.length===0){
         error.contactNo="contact number is needed";
     }
-    else if(details.contactNo.length<10){
+    else if(details.contactNo.length!=10){
       error.contactNo="not a valid number";
     }   
 
